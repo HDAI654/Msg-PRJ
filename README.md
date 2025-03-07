@@ -54,7 +54,7 @@ Make sure you have the following installed:
 - Manage your messages in an intuitive chat panel.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributions
 Contributions are welcome! Feel free to submit pull requests or report issues.
