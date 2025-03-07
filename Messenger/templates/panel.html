@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en", xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>My Panel</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="{% static 'css_main/bootstrap.css' %}">
+        <script src="{% static 'js_main/jquery.js' %}"></script>
+        <script src="{% static 'js_main/popper.js' %}"></script>
+        <script src="{% static 'js_main/bootstrap.bundle.js' %}"></script>
+    </head>
+    <body dir="ltr" class="body bg-dark">
+        <div class="container-fluid">
+
+            <!-- refresh button row -->
+            <div class="row fixed-top bg-transparent text-right">
+                <div class="col-md-12 mr-3 ml-1">
+                    <button type="button" id="refresh_btn" class="bg-transparent btn"><image src="{% static "img_main/refresh.png" %}"></image></button>
+                </div>
+            </div>
+
+
+            <!-- textbox row -->
+            <div class="row fixed-bottom bg-transparent  text-center">
+                <div class="col-md-12 mr-3 ml-1">
+                    <form method="post" class="form-check-inline w-100" id="message_form">
+                        {% csrf_token %}
+                        {% for item in form %}
+                            {{ item }}
+                        {% endfor %}
+                        <div class="input-group-append">
+                            <button type="button" id="send_btn" class="bg-transparent btn input-group-append"><image src="{% static "img_main/send.png" %}"></image></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- messages row -->
+            <div id="message" style="margin-bottom: 100px;">
+            </div>
+
+
+            <!-- hidden form for get data from backend -->
+            <form method='post' id='frm-getdata'>
+                {% csrf_token %}
+            </form>
+
+        </div>
+
+        <script src="{% static 'js_main/special_scripts.js' %}"></script>
+    </body>
+</html>

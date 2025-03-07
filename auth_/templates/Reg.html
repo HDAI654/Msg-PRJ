@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <style>
+        .body {
+            height: 100vh; /* Full height */
+        }
+        .login-wrap {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+<body class="body bg-dark">
+    <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6">
+                <div class="login-wrap p-4">
+                    <h2 class="heading-section text-light text-center">Register</h2>
+                    <form action="reg_func" method="post">
+                        {% csrf_token %}
+                        {% for item in form %}
+                            <div class="form-group">
+                                <label class="mb-1 text-light">{{ item.label_tag }}</label>
+                                {{ item }}
+                            </div>
+                        {% endfor %}
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
+                            <a class="form-control btn btn-info submit px-3 mt-2" href='login'>Back To Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
